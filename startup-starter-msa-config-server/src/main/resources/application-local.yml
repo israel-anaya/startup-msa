@@ -1,0 +1,16 @@
+spring:  
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/israel-anaya/startupframework-demo-config.git
+          force-pull: true
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    registryFetchIntervalSeconds: 5
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/

@@ -1,0 +1,16 @@
+server:  
+  port: ${PORT:8762}
+spring:  
+  application:
+    name: startup-starter-msa-discovery-server-${spring.profiles.active}
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      
+

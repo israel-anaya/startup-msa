@@ -1,0 +1,8 @@
+spring:  
+  profiles:    active: local
+logging:
+  level:
+    org.springframework.cloud.netflix.eureka: info
+    com.netflix.eureka: info
+    com.netflix.discovery: info
+
