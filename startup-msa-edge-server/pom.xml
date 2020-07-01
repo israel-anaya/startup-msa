@@ -21,20 +21,20 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>startup-starter-msa-discovery-server</artifactId>
+	<artifactId>startup-msa-edge-server</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.startupframework</groupId>
 		<artifactId>startup-starter-ms-parent</artifactId>
-		<version>1.0.1.RELEASE</version>
+		<version>1.0.2.RELEASE</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-		</dependency>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>	
 	</dependencies>
 
 	<build>
@@ -47,3 +47,4 @@
 	</build>
 
 </project>
+

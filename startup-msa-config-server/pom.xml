@@ -21,20 +21,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>startup-starter-msa-edge-server</artifactId>
+	<artifactId>startup-msa-config-server</artifactId>
 	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.startupframework</groupId>
 		<artifactId>startup-starter-ms-parent</artifactId>
-		<version>1.0.1.RELEASE</version>
+		<version>1.0.2.RELEASE</version>
 	</parent>
 
 	<dependencies>
+		<!-- Eureka -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency>	
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<!-- Seguridad -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -47,4 +53,3 @@
 	</build>
 
 </project>
-
