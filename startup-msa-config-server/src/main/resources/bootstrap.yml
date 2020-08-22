@@ -4,6 +4,10 @@ spring:
 encrypt:
    key: raF9XALKgd0FusDKXYywPg==
    failOnError: true
-logging:
-  level:    
-    root: info
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true

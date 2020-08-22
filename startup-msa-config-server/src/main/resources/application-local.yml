@@ -1,3 +1,8 @@
+server:  
+  port: ${PORT:0}
+  tomcat:
+    threads:
+      max: 5
 spring:  
   cloud:
     config:
@@ -6,11 +11,11 @@ spring:
           uri: https://github.com/israel-anaya/startupframework-demo-config.git
           force-pull: true
 eureka:
-  instance:
-    preferIpAddress: true
   client:
-    registerWithEureka: true
     registryFetchIntervalSeconds: 5
-    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:    
+    root: INFO
+    org.springframework.cloud.config: TRACE

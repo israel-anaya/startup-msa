@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency>	
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -43,6 +43,27 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jkube</groupId>
+				<artifactId>kubernetes-maven-plugin</artifactId>
+				<version>1.0.0-rc-1</version>
+				<configuration>
+					<images>
+						<image>
+							<name>startupframework/${project.artifactId}:${project.version}</name>
+							<alias>${project.artifactId}</alias>
+							<build>								
+								<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>								
+								<args>
+									<JAR_FILE>maven/${project.artifactId}-${project.version}.jar</JAR_FILE>
+								</args>
+							</build>
+						</image>
+					</images>
+					<targetDir>${project.build.directory}</targetDir>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
