@@ -1,0 +1,18 @@
+version: '2.2'
+services:
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.9.0
+    container_name: logstash
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./pipeline/:/usr/share/logstash/pipeline/
+    ports:
+      - 5044:5044
+    networks:
+      - elastic-network
+
+networks:
+  elastic-network:
+    external: true
+    name: elastic-network

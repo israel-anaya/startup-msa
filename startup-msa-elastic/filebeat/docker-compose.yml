@@ -1,0 +1,14 @@
+version: '2.2'
+services:
+  filebeat:
+    image: startupframework/filebeat:1.0
+    container_name: filebeat
+    volumes:
+      - C:/var/log/spring-boot-app/:/var/log/spring-boot-app/
+    networks:
+      - elastic-network
+
+networks:
+  elastic-network:
+    external: true
+    name: elastic-network
