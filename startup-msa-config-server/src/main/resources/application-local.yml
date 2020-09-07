@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/israel-anaya/startupframework-demo-config.git
+          uri: https://github.com/israel-anaya/startup-framework-demo-config.git
           force-pull: true
 eureka:
   client:

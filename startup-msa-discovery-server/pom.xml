@@ -37,6 +37,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
+		<!-- Startup Core -->
+		<dependency>
+			<groupId>org.startupframework</groupId>
+			<artifactId>startup-starter-core</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>

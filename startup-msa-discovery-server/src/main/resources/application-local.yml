@@ -10,7 +10,6 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 logging:
   level:    
-    root: INFO
     org.springframework.cloud.config: TRACE
     org.springframework.cloud.netflix.eureka: INFO
     com.netflix.eureka: INFO
