@@ -30,7 +30,8 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigServer
 public class ConfigServerApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		
 		SpringApplication.run(ConfigServerApplication.class, args);
 	}
 

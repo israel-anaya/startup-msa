@@ -1,7 +1,8 @@
-spring:  
+spring:
   cloud:    config:
-      name: startup-msa-edge-server      discovery:        service-id: startup-msa-config-server-${spring.profiles.active}
-        enabled: true  profiles:    active: local
+      name: startup-msa-edge-server
+      discovery:        service-id: startup-msa-config-server-${spring.profiles.active}
+        enabled: true          profiles:    active: local
 eureka:
   instance:
     preferIpAddress: true

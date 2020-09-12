@@ -5,6 +5,7 @@ ARG JAR_FILE
 USER root
 
 ENV SPRING_BOOT_HOME /usr/spring-boot-app
+ENV SPRING_BOOT_LOG /var/log/spring-boot-app
 ENV	SPRING_BOOT_USER sbapp
 ENV	SPRING_BOOT_GROUP sbapp
 ENV	SPRING_BOOT_ARTIFACT_NAME spring-boot-application.jar
@@ -20,7 +21,10 @@ COPY ${JAR_FILE} ${SPRING_BOOT_HOME}/${SPRING_BOOT_ARTIFACT_NAME}
 RUN apk add --update --no-cache tzdata \
 	&& addgroup -S ${SPRING_BOOT_GROUP} && adduser -S ${SPRING_BOOT_USER} -G ${SPRING_BOOT_GROUP} \
 	&& chown -R ${SPRING_BOOT_USER} ${SPRING_BOOT_HOME} \
-	&& chgrp -R ${SPRING_BOOT_GROUP} ${SPRING_BOOT_HOME}
+	&& chgrp -R ${SPRING_BOOT_GROUP} ${SPRING_BOOT_HOME} \
+	&& mkdir -p ${SPRING_BOOT_LOG} \
+	&& chown -R ${SPRING_BOOT_USER} ${SPRING_BOOT_LOG} \
+	&& chgrp -R ${SPRING_BOOT_GROUP} ${SPRING_BOOT_LOG}
 
 WORKDIR $SPRING_BOOT_HOME
 USER $SPRING_BOOT_USER
