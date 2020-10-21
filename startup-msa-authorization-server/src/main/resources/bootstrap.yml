@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: startup-msa-authorization-server
+  datasource:
+    url: jdbc:postgresql://${DB_HOSTNAME}:${DB_PORT}/${DB_DATABASE}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    generate-ddl: true
+    show-sql: false # No show on production modedmin
+    hibernate:
+      ddl-auto: update      
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:           
+      hibernate.event.merge.entity_copy_observer: allow
+      javax.persistence.validation.mode: none
+      hibernate.globally_quoted_identifiers: true
+  profiles:    active: local
+
+server:
+  port: 8085
+  forward-headers-strategy: native
+  servlet:
+    context-path: "/"
+
+keycloak:
+  custom:
+    adminUser:
+      username: admin
+      password: admin
+      create-admin-user-enabled: true
+
+  
+  

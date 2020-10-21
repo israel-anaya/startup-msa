@@ -1,0 +1,5 @@
+org.springframework.context.ApplicationListener=\
+	org.startupframework.msa.security.support.PopulateKeycloakPropertiesApplicationListener
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ 	org.startupframework.msa.security.config.EmbeddedSpringKeycloakAutoConfiguration
