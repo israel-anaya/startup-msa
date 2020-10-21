@@ -10,6 +10,7 @@
 		<groupId>org.startupframework</groupId>
 		<artifactId>startup-starter-parent</artifactId>
 		<version>1.0.2.RELEASE</version>
+        <relativePath></relativePath>
 	</parent>
 
     <description>Embedded Keycloak Server</description>
