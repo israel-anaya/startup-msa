@@ -25,57 +25,41 @@
 
 	<parent>
 		<groupId>org.startupframework</groupId>
-		<artifactId>startup-starter-ms-parent</artifactId>
+		<artifactId>startup-starter-msa-parent</artifactId>
 		<version>1.0.2.RELEASE</version>
 		<relativePath></relativePath>
 	</parent>
 
+
 	<dependencies>
-		<!-- Eureka -->
+		<!-- Config Server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
+           	<exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
-		<!-- Startup Core -->
+		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.startupframework</groupId>
 			<artifactId>startup-starter-core</artifactId>
 			<version>1.0.2.RELEASE</version>
-		</dependency>
-		<!-- Seguridad -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-openfeign</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.jkube</groupId>
-				<artifactId>kubernetes-maven-plugin</artifactId>
-				<version>1.0.0-rc-1</version>
-				<configuration>
-					<images>
-						<image>
-							<name>startupframework/${project.artifactId}:${project.version}</name>
-							<alias>${project.artifactId}</alias>
-							<build>
-								<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
-								<args>
-									<JAR_FILE>maven/${project.artifactId}-${project.version}.jar</JAR_FILE>
-								</args>
-							</build>
-						</image>
-					</images>
-					<targetDir>${project.build.directory}</targetDir>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
