@@ -60,17 +60,6 @@
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         
-		<dependency>
-			<groupId>org.startupframework</groupId>
-			<artifactId>startup-starter-core</artifactId>
-			<version>1.0.2.RELEASE</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.cloud</groupId>
-					<artifactId>spring-cloud-starter-openfeign</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 	</dependencies>
 
 
