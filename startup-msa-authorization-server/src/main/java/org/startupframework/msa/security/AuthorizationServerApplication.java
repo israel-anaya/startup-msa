@@ -20,10 +20,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 
-@EnableDiscoveryClient
 @EnableAutoConfiguration(exclude = LiquibaseAutoConfiguration.class)
 @SpringBootApplication
 public class AuthorizationServerApplication {
