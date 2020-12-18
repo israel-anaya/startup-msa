@@ -1,9 +1,5 @@
 spring:  
   application:
     name: startup-msa-discovery-server-${spring.profiles.active}
-eureka:
-  instance:
-    hostname: localhost
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
       
 
