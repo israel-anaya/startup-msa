@@ -1,44 +1,41 @@
+metadata:
+  namespace: startup
 spec:
   replicas: 1
   template:
     spec:
       containers:
-      - imagePullPolicy: Always
-        env:
-        - name: JAVA_OPTS_MEM
-          value: -Xmx74M -XX:MaxMetaspaceSize=80M -Xss366K
-        - name: SPRING_OPTS
-          value: >-
-            --server.port=8080 
-            --spring.profiles.active=k8
-            --eureka.client.serviceUrl.defaultZone=http://startup-msa-discovery-server/eureka/
-        ports:
-        - containerPort: 8080
-          name: http-service
-          protocol: TCP
+      - imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: ${project.artifactId}           
         resources:
           limits:
             memory: 256Mi
           requests:
             memory: 256Mi
-        readinessProbe:
-          httpGet:
-            path: /actuator/health
-            port: 8080
-          periodSeconds: 10
-          timeoutSeconds: 5
-          successThreshold: 1
-          initialDelaySeconds: 90
-          failureThreshold: 20
+        ports:
+        - name: http-service
+          containerPort: 8080          
+          protocol: TCP
         livenessProbe:
           httpGet:
+            port: http-service
             path: /actuator/health
-            port: 8080
+          initialDelaySeconds: 300
+          periodSeconds: 30
           timeoutSeconds: 5
-          initialDelaySeconds: 480
-          periodSeconds: 10
           successThreshold: 1
-          failureThreshold: 6
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            port: http-service
+            path: /actuator/health
+          initialDelaySeconds: 300
+          periodSeconds: 30
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 3
         volumeMounts:
         - mountPath: "/var/log/sb-app/"
           name: container-log

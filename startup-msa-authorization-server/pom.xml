@@ -24,6 +24,7 @@
         <!-- <smallrye-metrics.version>2.3.3</smallrye-metrics.version> --> <!-- 2.4.0-2.4.2 causes compilation error with Java 11 on Maven -->
 
         <auto-service.version>1.0-rc7</auto-service.version>
+        <image.registry>startupframework</image.registry>
     </properties>
 
     <dependencies>
@@ -259,11 +260,11 @@
 			<plugin>
 				<groupId>org.eclipse.jkube</groupId>
 				<artifactId>kubernetes-maven-plugin</artifactId>
-				<version>1.0.0-rc-1</version>
+				<version>1.0.2</version>
 				<configuration>
 					<images>
 						<image>
-							<name>startupframework/${project.artifactId}:${project.version}</name>
+							<name>${image.registry}/${project.artifactId}:${project.version}</name>
 							<alias>${project.artifactId}</alias>
 							<build>								
 								<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>								

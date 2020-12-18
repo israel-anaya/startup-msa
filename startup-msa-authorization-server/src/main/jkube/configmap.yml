@@ -1,0 +1,14 @@
+metadata:
+  namespace: startup
+data:
+  JAVA_OPTS_MEM: -Xmx512M -XX:MaxMetaspaceSize=256M -Xss366K
+  SPRING_OPTS: >-
+    --server.port=8080
+    --spring.profiles.active=dev
+    --eureka.instance.ip-address=127.0.0.1
+    --startup.dependencies=security-db-server:5432
+  DB_HOSTNAME: security-db-server
+  DB_PORT: 5432
+  DB_DATABASE: security-db
+  DB_USER: msa
+  DB_PASS: msa

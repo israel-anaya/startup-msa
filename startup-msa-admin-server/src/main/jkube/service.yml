@@ -1,3 +1,5 @@
+metadata:
+  namespace: startup
 spec:
   type: NodePort
   ports:
@@ -5,4 +7,4 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 8080
-    nodePort: 30080
+    nodePort: 30081
