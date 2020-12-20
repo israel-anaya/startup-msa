@@ -33,5 +33,7 @@ keycloak:
       password: admin
       create-admin-user-enabled: true
 
-  
-  
+logging:
+  file:
+    path: /var/log/http-service/
+    max-history: 7

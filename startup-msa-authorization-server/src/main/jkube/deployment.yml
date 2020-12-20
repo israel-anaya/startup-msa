@@ -37,8 +37,9 @@ spec:
           successThreshold: 1
           failureThreshold: 3
         volumeMounts:
-        - mountPath: "/var/log/sb-app/"
-          name: container-log
+        - mountPath: "/var/log/http-service/"
+          name: http-service-logs
       volumes:
-      - name: container-log
-        emptyDir: {}
+      - name: http-service-logs
+        persistentVolumeClaim:
+          claimName: http-service-logs-pv-claim
