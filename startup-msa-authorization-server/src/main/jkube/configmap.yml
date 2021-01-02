@@ -1,7 +1,7 @@
 metadata:
   namespace: startup
 data:
-  JAVA_OPTS_MEM: -Xmx512M -XX:MaxMetaspaceSize=256M -Xss366K
+  JAVA_OPTS_MEM: -Xms512m -Xmx512M
   SPRING_OPTS: >-
     --server.port=8080
     --spring.profiles.active=dev

@@ -11,9 +11,9 @@ spec:
             name: ${project.artifactId}           
         resources:
           limits:
-            memory: 256Mi
+            memory: 768Mi
           requests:
-            memory: 256Mi
+            memory: 512Mi
         ports:
         - name: http-service
           containerPort: 8080          
