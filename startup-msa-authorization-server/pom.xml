@@ -34,7 +34,7 @@
 
 	<properties>
 		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
-		<keycloak.version>11.0.2</keycloak.version>
+		<keycloak.version>14.0.0</keycloak.version>
 		<resteasy.version>3.12.1.Final</resteasy.version>
 		<!-- <infinispan.version>10.1.8.Final</infinispan.version> -->
 		<!-- <jgroups.version>4.2.4.Final</jgroups.version> -->
