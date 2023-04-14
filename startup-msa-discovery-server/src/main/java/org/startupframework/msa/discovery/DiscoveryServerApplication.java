@@ -21,6 +21,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
 
 @Configuration
 @EnableAutoConfiguration
